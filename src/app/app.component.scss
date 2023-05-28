@@ -1,0 +1,241 @@
+// ### Primary
+
+$Desaturated-Red: hsl(0, 36%, 70%);
+$Soft-Red: hsl(0, 93%, 68%);
+
+// ### Neutral
+
+$Dark-Grayish-Red: hsl(0, 6%, 24%);
+
+// ### Gradients
+
+$Linear1: hsl(0, 0%, 100%);
+$Linear2: hsl(0, 100%, 98%);
+$Linear3: hsl(0, 80%, 86%);
+$Linear4: hsl(0, 74%, 74%);
+
+// - Linear, 135deg, from hsl(0, 0%, 100%), to hsl(0, 100%, 98%)
+// - Linear, 135deg, from hsl(0, 80%, 86%), to hsl(0, 74%, 74%)
+* {
+    transition: all .2s ease;
+}
+
+.content {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    .sec-l {
+        background-image: url('../assets/images/bg-pattern-desktop.svg');
+        background-size: cover;
+        width: 60%;
+    }
+
+    .info-group {
+        padding: 5rem 10rem;
+
+        .img-logo {
+            margin-bottom: 8rem;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: lighter;
+            color: $Desaturated-Red;
+
+            span {
+                color: $Dark-Grayish-Red;
+                font-weight: bold;
+            }
+        }
+
+        .info {
+            color: $Desaturated-Red;
+            margin: 2.5rem 0;
+        }
+
+        .input-group {
+            margin-bottom: .5rem;
+
+            .input-group-text,
+            input {
+                border-radius: 3rem;
+                height: 4rem;
+            }
+
+            input {
+                border: 1px solid rgba($Desaturated-Red, .55);
+                border-top-right-radius: 0px;
+                border-bottom-right-radius: 0px;
+                padding-left: 2rem;
+                font-size: 1.2rem;
+            }
+
+            input::placeholder {
+                color: rgba($Desaturated-Red, .55);
+            }
+
+            input:focus {
+                box-shadow: none;
+                border: 2px solid $Desaturated-Red;
+            }
+
+            img.error {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 9.5rem;
+                width: 0;
+                height: 0;
+                z-index: 999;
+            }
+
+            .input-group-text {
+                transform: translateX(-28px);
+                z-index: 999999;
+                width: 7rem;
+            }
+
+            .btn-primary {
+                left: 0px;
+                background: linear-gradient(to right, $Linear3 0%, $Linear4 100%);
+                border: none;
+            }
+
+            .btn-primary:hover {
+                filter: brightness(155%);
+                box-shadow: 1px 8px 8px rgba($Linear4, .75);
+                background: linear-gradient(to right, $Linear4 0%, $Linear4 100%);
+            }
+        }
+
+        p.errors {
+            font-size: 0;
+            padding-left: 2rem;
+            color: $Soft-Red;
+            overflow: hidden;
+        }
+    }
+
+    .img {
+        position: relative;
+        width: 50%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.img-logo-mobile {
+    height: 0px;
+    width: 0px;
+
+    img {
+        width: 100%;
+        object-fit: contain;
+
+    }
+}
+
+.img-hero-mobile {
+    display: none;
+}
+
+.content.invalid {
+    .info-group {
+        .input-group {
+            position: relative;
+
+            input {
+                border: 2px solid rgba($Soft-Red, 1);
+            }
+
+            img.error {
+                width: auto;
+                height: auto;
+            }
+        }
+
+        p.errors {
+            font-size: 18px;
+        }
+    }
+}
+
+@media screen and (max-width:1178px) {
+    .content {
+        .info-group {
+            h1 {
+                font-size: 3rem;
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width:1018px) {
+    .content {
+        .info-group {
+            h1 {
+                font-size: 4vw;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:970px) {
+    .content {
+        flex-direction: column;
+        min-height: 100vh;
+        overflow: auto;
+        .sec-l {
+            order: 3;
+            width: 100%;
+
+            .info-group {
+                padding: 5rem 3rem;
+
+                h1,
+                .info {
+                    text-align: center;
+                }
+
+                h1 {
+                    font-size: 3rem;
+                }
+            }
+        }
+    }
+
+    .img-hero-mobile {
+        order: 2;
+        width: 100%;
+        display: inherit;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .img-logo-mobile {
+        order: 1;
+        height: auto;
+        width: 50vw;
+
+        img {
+            object-fit: contain;
+        }
+
+        padding: 7vw 9vw;
+    }
+
+    .img-logo,
+    .img {
+        display: none;
+        opacity: 0;
+    }
+}

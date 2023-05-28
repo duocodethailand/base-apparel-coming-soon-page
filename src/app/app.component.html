@@ -1,0 +1,29 @@
+<div class="content  d-flex" [ngClass]="{'invalid':CHK_EMAIL}" >
+  <div class="img-logo-mobile">
+    <img src="../assets/images/logo.svg" alt="logo">
+  </div>
+  <div class="img-hero-mobile">
+    <img src="../assets/images/hero-mobile.jpg" alt="hero">
+  </div>
+  <div class="sec-l">
+    <div class="info-group">
+      <div class="img-logo">
+        <img src="../assets/images/logo.svg" alt="logo">
+      </div>
+      <h1>W E ' R E<br><span class="coming">C O M I N G<br>S O O N</span></h1>
+      <p class="info">
+        Hello fellow shoppers! We’re currently building our new
+        fashion store. Add your email below to stay up-to-date with announcements and our launch deals.
+      </p>
+      <div class="input-group ">
+        <img class="error" src="../assets/images/icon-error.svg" alt="error">
+        <input type="text" class="form-control" placeholder="Email Address" (keyup.enter)="GetInput()" [(ngModel)]="Email_input">
+        <button class="btn btn-primary input-group-text" (click)="GetInput()"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+      <p class="errors">Please provide a valid email</p>
+    </div>
+  </div>
+  <div class="img">
+    <img src="../assets/images/hero-desktop.jpg" alt="hero">
+  </div>
+</div>
